@@ -1,0 +1,92 @@
+#1-Detector de palíndromos
+def is_palindrome(input_string):
+    new_string = ""
+    reverse_string = ""
+    for string in input_string.lower():
+        if string.replace(" ", ""):
+            new_string = string + new_string
+            reverse_string = string + reverse_string
+    if new_string[::-1]==reverse_string:
+        return True
+    return False
+
+print(is_palindrome("Never Odd or Even")) # Should be True
+print(is_palindrome("abc")) # Should be False
+print(is_palindrome("kayak")) # Should be True
+
+#2-Reemplazar final de strings
+def replace_ending(sentence, old, new):
+	# Check if the old string is at the end of the sentence 
+	if old in sentence:
+		# Using i as the slicing index, combine the part
+		# of the sentence up to the matched string at the 
+		# end with the new string
+		i = old[0]
+		new_sentence = sentence.index(0:old[0]) + new
+		return new_sentence
+
+	# Return the original sentence if there is no match 
+	return sentence
+	
+print(replace_ending("It's raining cats and cats", "cats", "dogs")) 
+# Should display "It's raining cats and dogs"
+print(replace_ending("She sells seashells by the seashore", "seashells", "donuts")) 
+# Should display "She sells seashells by the seashore"
+print(replace_ending("The weather is nice in May", "may", "april")) 
+# Should display "The weather is nice in May"
+print(replace_ending("The weather is nice in May", "May", "April")) 
+# Should display "The weather is nice in April"
+
+#3- Nombres de archivos
+filenames = ["program.c", "stdio.hpp", "sample.hpp", "a.out", "math.hpp", "hpp.out"]
+newfilenames = []
+for element in filenames:
+    if ".hpp" in element:
+        newfilenames.append(element.replace(".hpp", ".h"))
+    else:
+        newfilenames.append(element)
+
+print(newfilenames)
+
+
+# Should be ["program.c", "stdio.h", "sample.h", "a.out", "math.h", "hpp.out"]
+
+#4-Pig-latin
+def pig_latin(text):
+  say = []
+  # Separate the text into words
+  words = text.split(" ")
+  for word in words:
+    # Create the pig latin word and add it to the list
+    word = word[1:]+word[0] + "ay"
+    say.append(word)
+    # Turn the list back into a phrase
+  return " ".join(say)
+    
+print(pig_latin("hello how are you")) # Should be "ellohay owhay reaay ouyay"
+print(pig_latin("programming in python is fun")) # Should be "rogrammingpay niay ythonpay siay unfay"
+
+#5-Pregunta 5:Fill in the blanks to complete the “guest_list” function. The guest_list function reads in a list of tuples with the name, age, and profession of each party guest, and prints the sentence "Guest is _ years old and works as __." for each guest. For example, guest_list(('Ken', 30, "a Chef") should print: “Ken is 30 years old and works as a Chef.” 
+
+def biograpy_list(people):
+    # Iterate over each "person" in the given "people" list of tuples. 
+    for ___ 
+
+        # Separate the 3 items in each tuple into 3 variables:
+        # "name", "age", and "profession"   
+        ___  
+
+        # Format the required sentence and place the 3 variables 
+        # in the correct placeholders using the .format() method.
+        print(___.format(___))
+
+
+# Call to the function:
+biography_list([('Ira', 30, 'Chef'), ('Raj', 35, 'Lawyer'), ('Maria', 25, 'Engineer')])
+
+# Click Run to submit code
+
+# Output should match:
+# Ken is 30 years old and works as a Chef
+# Pat is 35 years old and works as a Lawyer
+# Amanda is 25 years old and works as an Engineer
